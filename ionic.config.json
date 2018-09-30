@@ -1,0 +1,7 @@
+{
+  "name": "anobium",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
