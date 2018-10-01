@@ -26,7 +26,7 @@ export class TabsPage {
     this.tab2Root = 'SecondPage';
     this.tab3Root = 'ThirdPage'
     this.tab4Root = 'FourthPage';
-    this.tab5Root = 'FifthPage'
+    this.tab5Root = 'AboutPage';
   }
 }
 

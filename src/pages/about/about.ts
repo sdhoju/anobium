@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-fifth',
-  templateUrl: 'fifth.html',
+  selector: 'page-about',
+  templateUrl: 'about.html',
 })
-export class FifthPage {
+export class AboutPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FifthPage');
+    console.log('ionViewDidLoad AboutPage');
   }
 
 }
