@@ -1,3 +1,5 @@
+import { LoginPage } from './../login/login';
+import { TabsPage } from './../tabs/tabs';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -22,4 +24,12 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
+  navigateToPage(pageName: string):void {
+    //condtion to check if the page is TabsPage or other pages
+    pageName =='TabsPage' ?  this.navCtrl.setRoot(pageName): this.navCtrl.push(pageName);
+  }
+  cancel(pageName: string): void{ 
+    this.navCtrl.popTo(pageName);
+  }
 }
+ 
