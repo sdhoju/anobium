@@ -1,19 +1,21 @@
-
 <ion-header>
-  <ion-navbar>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-item><ion-label floating>Email Address</ion-label><ion-input  type="email"></ion-input></ion-item>  
-  <ion-item><ion-label floating>Password</ion-label><ion-input type="password"></ion-input> </ion-item>
-  <div>
-      <button ion-button (click)="navigateToPage('RegisterPage')" color="secondary">Register</button>
-      <button ion-button (click)="navigateToPage('TabsPage')" >LogIn</button>
-   
-
-  </div>
-<span (click)="navigateToPage('ForgotPage')" style="color:blue">Forgot Password?</span>
-
-</ion-content>
+	<ion-list no-lines class="inputs">
+		<ion-item>
+			<ion-input class="inUsername" type="text" placeholder="Username"></ion-input>
+		</ion-item>
+		
+		<ion-item>
+			<ion-input class="inPassword" type="password" placeholder="Password"></ion-input>
+		</ion-item>
+		
+		<ion-item>
+			<button (click)="login()" class="signIn" ion-button round block> Sign In </button>
+			</ion-item>
+		</ion-list>
+		
+		<p class="bottom">Don't have an account? <a tappable color="primary">Create one</a></p>
+		
+	</ion-content>
