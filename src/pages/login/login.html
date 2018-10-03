@@ -2,6 +2,8 @@
 </ion-header>
 
 <ion-content padding>
+  	<img src ="assets/imgs/logo.png" alt="logo">
+
 	<ion-list no-lines class="inputs">
 		<ion-item>
 			<ion-input class="inUsername" type="text" placeholder="Username"></ion-input>
@@ -12,7 +14,7 @@
 		</ion-item>
 		
 		<ion-item>
-			<button (click)="login()" class="signIn" ion-button round block> Sign In </button>
+			<button (click)="navigateToPage('TabsPage')" class="signIn" ion-button round block> Sign In </button>
 			</ion-item>
 		</ion-list>
 		
