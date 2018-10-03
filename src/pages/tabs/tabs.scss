@@ -1,3 +1,14 @@
 page-tabs {
-
+    .ion-ios-settings, .ion-md-settings {
+        content: url(../assets/icon/lnficon.png);
+        width: 24px;
+    }
+    .ion-ios-settings-outline {
+        content: url(../assets/icon/lnficon.png);
+        width: 24px;
+    }
+    .ion-md-settings[ng-reflect-is-active=false]{
+        content: url(../assets/icon/lnficon.png);
+        width: 24px;
+    }
 }
