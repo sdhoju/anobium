@@ -1,6 +1,19 @@
 page-login {
 
     img {
-        padding: 5em, 5em,5em, 0;
+        padding: 2em 1em ;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
     }
+    .item-ios{
+        border-radius: 25px !important;
+        background-color: #eeeeee;
+        color: black;
+        ::placeholder{
+            color:black;
+        }
+    }
+
 }
