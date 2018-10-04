@@ -14,12 +14,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'fourth.html',
 })
 export class FourthPage {
-
+Inbox:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.Inbox="messages";
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FourthPage');
   }
-
 }

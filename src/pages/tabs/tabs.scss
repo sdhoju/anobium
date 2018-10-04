@@ -1,14 +1,68 @@
 page-tabs {
-    .ion-ios-settings, .ion-md-settings {
-        content: url(../assets/icon/lnficon.png);
+    .ion-ios-bug, .ion-md-bug {
+        content: url(../assets/icon/lostandfound.png);
         width: 24px;
     }
-    .ion-ios-settings-outline {
-        content: url(../assets/icon/lnficon.png);
+    .ion-ios-bug-outline {
+        content: url(../assets/icon/lostandfound.png);
         width: 24px;
     }
-    .ion-md-settings[ng-reflect-is-active=false]{
-        content: url(../assets/icon/lnficon.png);
+    .ion-md-bug[ng-reflect-is-active=false]{
+        content: url(../assets/icon/lostandfound.png);
         width: 24px;
     }
+
+    .ion-ios-megaphone, .ion-md-megaphone {
+        content: url(../assets/icon/report_found.png);
+        width: 24px;
+    }
+    .ion-ios-megaphone-outline {
+        content: url(../assets/icon/report_found.png);
+        width: 24px;
+    }
+    .ion-md-megaphone[ng-reflect-is-active=false]{
+        content: url(../assets/icon/report_found.png);
+        width: 24px;
+    }
+
+    .ion-ios-sad, .ion-md-sad {
+        content: url(../assets/icon/report_lost.png);
+        width: 24px;
+    }
+    .ion-ios-sad-outline {
+        content: url(../assets/icon/report_lost.png);
+        width: 24px;
+    }
+    .ion-md-sad[ng-reflect-is-active=false]{
+        content: url(../assets/icon/report_lost.png);
+        width: 24px;
+    }
+
+    .ion-ios-mail, .ion-md-mail {
+        content: url(../assets/icon/mail.png);
+        width: 24px;
+    }
+    .ion-ios-mail-outline {
+        content: url(../assets/icon/mail.png);
+        width: 24px;
+    }
+    .ion-md-mail[ng-reflect-is-active=false]{
+        content: url(../assets/icon/mail.png);
+        width: 24px;
+    }
+
+    .ion-ios-people, .ion-md-people {
+        content: url(../assets/icon/people.png);
+        width: 24px;
+    }
+    .ion-ios-people-outline {
+        content: url(../assets/icon/people.png);
+        width: 24px;
+    }
+    .ion-md-people[ng-reflect-is-active=false]{
+        content: url(../assets/icon/people.png);
+        width: 24px;
+    }
+
+    
 }

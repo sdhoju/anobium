@@ -22,8 +22,8 @@ export class TabsPage {
 
 
   constructor() {
-    this.tab1Root = 'FirstPage';
-    this.tab2Root = 'SecondPage';
+    this.tab1Root = 'CenterPage';
+    this.tab2Root = 'FoundPage';
     this.tab3Root = 'ThirdPage'
     this.tab4Root = 'FourthPage';
     this.tab5Root = 'AboutPage';

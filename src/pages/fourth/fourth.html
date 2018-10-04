@@ -5,14 +5,103 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+    <ion-navbar >
+      <ion-title>
+        Inbox
+      </ion-title>
+    </ion-navbar>
+  
+    <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="Inbox">
+        <ion-segment-button value="activities">
+            Activities
+        </ion-segment-button>
+        <ion-segment-button value="notifications">
+          Notifications
+        </ion-segment-button>
+        <ion-segment-button value="messages">
+          Messages
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <div [ngSwitch]="Inbox">
+      <ion-list *ngSwitchCase="'activities'">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/img/thumbnail-puppy-1.jpg">
+          </ion-thumbnail>
+          <h2>Ruby</h2>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/img/thumbnail-puppy-2.jpg">
+          </ion-thumbnail>
+          <h2>Oscar</h2>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/img/thumbnail-puppy-4.jpg">
+          </ion-thumbnail>
+          <h2>Zoey</h2>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/img/thumbnail-puppy-3.jpg">
+          </ion-thumbnail>
+          <h2>Otto</h2>
+        </ion-item>
+      </ion-list>
+  
+      <ion-list *ngSwitchCase="'notifications'">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/img/thumbnail-kitten-1.jpg">
+          </ion-thumbnail>
+          <h2>Luna</h2>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/img/thumbnail-kitten-3.jpg">
+          </ion-thumbnail>
+          <h2>Milo</h2>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/img/thumbnail-kitten-4.jpg">
+          </ion-thumbnail>
+          <h2>Bandit</h2>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/img/thumbnail-kitten-2.jpg">
+          </ion-thumbnail>
+          <h2>Nala</h2>
+        </ion-item>
+      </ion-list>
+  
+      <ion-list *ngSwitchCase="'messages'">
+          <ion-item>
+              <h3>Jeffery</h3>
+              <p>Hey I found your Phone.</p>
+          </ion-item>
 
-  <ion-navbar>
-    <ion-title>FourthPage</ion-title>
-  </ion-navbar>
+          <ion-item>
+            <h3>Julieta</h3>
+            <p>Can I meet you at library?.</p>
+           </ion-item>
+          
+           <ion-item>
+            <h3>Alex</h3>
+            <p>Thank you very much..</p>
+          </ion-item>
 
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+          <ion-item>
+              <h3>Max</h3>
+              <p>My friend Josh will pick that from you.</p>
+          </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>
