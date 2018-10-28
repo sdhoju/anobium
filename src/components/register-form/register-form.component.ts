@@ -1,22 +1,40 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-/**
- * Generated class for the RegisterFormComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
+import { NavController,  ToastController } from 'ionic-angular';
+import {AngularFireAuth } from 'angularfire2/auth';
+import {Account} from '../../models/account/account.interface'
+
 @Component({
   selector: 'app-register-form',
   templateUrl: 'register-form.component.html'
 })
+
 export class RegisterFormComponent {
+  
+  account ={} as Account;
 
-  text: string;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    private navCtrl: NavController, 
+    private afAuth: AngularFireAuth,
+    private toast: ToastController) {
   }
-
+  
+  async register() {
+    try{
+      const result = await this.afAuth.auth.createUserWithEmailAndPassword(this.account.email, this.account.password)
+      this.toast.create({
+        message: "Account successfully created",
+        duration: 3000
+      }).present();
+      console.log(result);
+    }catch(e){
+      console.error(e);
+      this.toast.create({
+        message: e.message,
+        duration: 3000
+      }).present();
+    }
+    
+  }
   
   navigateToPage(pageName: string):void {
     //condtion to check if the page is TabsPage or other pages
