@@ -22,10 +22,6 @@ export class LoginPage {
   login(event: LoginResponse){
     console.log(event);
     if(!event.error){
-      // this.toast.create({
-      //   message:`Lost and Found, ${event.result.email}`,
-      //   duration:3000
-      // }).present();
       this.navCtrl.setRoot("TabsPage")
     }else{
       this.toast.create({

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,Output, EventEmitter } from '@angular/core';
 import { NavController,  ToastController } from 'ionic-angular';
-import {AngularFireAuth } from 'angularfire2/auth';
 import {Account} from '../../models/account/account.interface'
+import { AuthService } from './../../providers/auth/auth.service';
+import {LoginResponse} from '../../models/login/login-response.interface';
 
 @Component({
   selector: 'app-register-form',
@@ -11,34 +12,27 @@ import {Account} from '../../models/account/account.interface'
 export class RegisterFormComponent {
   
   account ={} as Account;
+  @Output() registerStatus: EventEmitter<any>
 
   constructor(
     private navCtrl: NavController, 
-    private afAuth: AngularFireAuth,
+    private auth: AuthService,
     private toast: ToastController) {
+     this.registerStatus=new EventEmitter<any>(); 
   }
   
   async register() {
     try{
-      const result = await this.afAuth.auth.createUserWithEmailAndPassword(this.account.email, this.account.password)
-      this.toast.create({
-        message: "Account successfully created",
-        duration: 3000
-      }).present();
-      console.log(result);
+      const result = await this.auth.createUserWithEmailAndPassword(this.account)
+
+      this.registerStatus.emit(result);
     }catch(e){
       console.error(e);
-      this.toast.create({
-        message: e.message,
-        duration: 3000
-      }).present();
-    }
-    
+      this.registerStatus.emit(e);
+    } 
   }
-  
   navigateToPage(pageName: string):void {
-    //condtion to check if the page is TabsPage or other pages
-    pageName =='TabsPage' ?  this.navCtrl.setRoot(pageName): this.navCtrl.push(pageName);
+    this.navCtrl.push(pageName);
   }
   cancel(pageName: string): void{ 
     this.navCtrl.popTo(pageName);
