@@ -1,26 +1,6 @@
 <ion-header>
-
-<br><br><br>
+  <br><br><br>
 </ion-header>
-
-
 <ion-content padding>
-
-<ion-item><ion-label floating>First Name</ion-label><ion-input  type="first name"></ion-input></ion-item>  
-<ion-item><ion-label floating>Last Name</ion-label><ion-input type="last name"></ion-input> </ion-item>
-<ion-item><ion-label floating>Phone Number</ion-label><ion-input  type="phone number"></ion-input></ion-item>  
-<ion-item><ion-label floating>Email</ion-label><ion-input type="email"></ion-input> </ion-item>
-<ion-item><ion-label floating>Password</ion-label><ion-input  type="password"></ion-input></ion-item>
-
-<p>
-  Do you agree to everything? 
-</p>
-
-<div>
-  <button ion-button (click)="navigateToPage('TabsPage')" color="secondary">Register</button>
-  <button ion-button (click)="cancel('RegisterPage')" >Cancel</button>
-
-
-</div>
-
+  <app-register-form></app-register-form>
 </ion-content>

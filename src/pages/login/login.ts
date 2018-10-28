@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { User } from '../../models/user/user.interface';
 
 /**
  * Generated class for the LoginPage page.
@@ -17,6 +18,8 @@ export class LoginPage {
 
   constructor(private navCtrl: NavController, private navParams: NavParams) {
   }
+
+  user = {} as User;
 
   navigateToPage(pageName: string):void {
     //condtion to check if the page is TabsPage or other pages

@@ -1,0 +1,19 @@
+<img src ="assets/imgs/logo.png" alt="logo">
+
+	<ion-list class="inputs">
+		<ion-item>
+        <ion-label >Username</ion-label><ion-input  type="text"></ion-input>
+		</ion-item>
+		
+		<ion-item>
+        <ion-label >Password</ion-label><ion-input type="password"></ion-input>
+		</ion-item>
+		<span (click)="navigateToPage('ForgotPage')" style="color:blue" >Forgot Password?</span>
+
+		
+			<button (click)="navigateToPage('TabsPage')" class="signIn" ion-button round block newcolor> Sign In </button>
+			
+		</ion-list>
+		
+		<p class="bottom">Don't have an account? <span (click)="navigateToPage('RegisterPage')" style="color:blue">Create one</span></p>
+		
