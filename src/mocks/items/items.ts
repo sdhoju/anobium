@@ -1,4 +1,4 @@
-import { USER_LIST } from './../users/users';
+import { USER_LIST } from './../profiles/profiles';
 import {Item} from '../../models/lost-n-found/item.interface';
 
 const userList = USER_LIST;

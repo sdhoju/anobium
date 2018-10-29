@@ -18,15 +18,18 @@ export class RegisterPage {
   register(event: LoginResponse){
     if(!event.error){
         this.toast.create({
-        message: `Account created: ${event.result.email}`,
-        duration: 3000
+        message: `Account created: ${event.result.user.email}`,
+        duration: 3000,
+        position: 'top'
       }).present();
       this.navCtrl.setRoot("TabsPage")
     }
     else{
         this.toast.create({
         message: `Account not created: ${event.error.message}`,
-        duration: 3000
+        duration: 3000,
+        position: 'top'
+
       }).present();
     }
   }

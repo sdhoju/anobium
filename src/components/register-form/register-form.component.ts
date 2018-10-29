@@ -1,7 +1,7 @@
 import { Component,Output, EventEmitter } from '@angular/core';
 import { NavController,  ToastController } from 'ionic-angular';
 import {Account} from '../../models/account/account.interface'
-import { AuthService } from './../../providers/auth/auth.service';
+import { AuthService } from '../../providers/auth.service';
 import {LoginResponse} from '../../models/login/login-response.interface';
 
 @Component({
@@ -12,13 +12,14 @@ import {LoginResponse} from '../../models/login/login-response.interface';
 export class RegisterFormComponent {
   
   account ={} as Account;
-  @Output() registerStatus: EventEmitter<any>
+  
+  @Output() registerStatus: EventEmitter<LoginResponse>
 
   constructor(
     private navCtrl: NavController, 
     private auth: AuthService,
     private toast: ToastController) {
-     this.registerStatus=new EventEmitter<any>(); 
+     this.registerStatus=new EventEmitter<LoginResponse>(); 
   }
   
   async register() {

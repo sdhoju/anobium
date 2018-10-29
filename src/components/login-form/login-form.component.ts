@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import {NavController} from 'ionic-angular'
 
 import {Account} from '../../models/account/account.interface'
-import { AuthService } from './../../providers/auth/auth.service';
+import { AuthService } from '../../providers/auth.service';
 import {LoginResponse} from '../../models/login/login-response.interface'
   
 @Component({
