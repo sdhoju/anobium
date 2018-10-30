@@ -28,13 +28,9 @@ import { FormsModule } from '@angular/forms';
     IonicModule.forRoot(MyApp),
 
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-<<<<<<< HEAD
-    AngularFireAuthModule
-
-=======
     AngularFireAuthModule,
     AngularFireDatabaseModule
->>>>>>> 9063bb3a54e8ad40bdafbf15a4d69d4093aa51f9
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [

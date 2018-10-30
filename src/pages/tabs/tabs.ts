@@ -1,3 +1,4 @@
+import { LoginPage } from './../login/login';
 
 import { EditProfilePage } from './../edit-profile/edit-profile';
 import { Component } from '@angular/core';
@@ -27,8 +28,9 @@ export class TabsPage {
   
   logout(){
    // this.navCtrl.setRoot
-    const root = this.app.getRootNav();
-    root.popToRoot();
+   // const root = this.app.getRootNav();
+    //root.popToRoot();
+    this.app.getRootNav().setRoot(LoginPage);
   }
 }
 
