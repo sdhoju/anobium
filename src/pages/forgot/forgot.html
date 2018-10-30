@@ -9,5 +9,19 @@
 
 
 <ion-content padding>
-TODO
+  <form>
+    <ion-item>
+        <ion-label >Email</ion-label>
+        <ion-input [(ngModel)]="forgetEmail"  type="text" name="phone">
+        </ion-input>
+      </ion-item>
+        
+
+      <div>
+          <button ion-button (click)="resetPassword()">Reset Password</button>
+          <button ion-button (click)="cancel()" >Cancel</button>
+      
+        </div>
+
+  </form>
 </ion-content>

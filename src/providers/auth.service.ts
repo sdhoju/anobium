@@ -25,7 +25,22 @@ export class AuthService {
     }
   }
 
+  async resetPassword(email: string) {
+    try{
+      return <any> {
+        result: await this.auth.auth.sendPasswordResetEmail(email)
+        .then(() => console.log("email sent"))
+        .catch((error) => console.log(error))
+      }
+    }catch(e){
+      return <LoginResponse>{
+          error:e
+      }
+    }
 
+
+
+  }
 
   async signInWithEmailAndPassword(account: Account){
     try{

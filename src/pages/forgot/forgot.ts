@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AuthService } from '../../providers/auth.service';
 
 
 @IonicPage()
@@ -9,11 +10,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ForgotPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  forgetEmail: string;
+  constructor(public navCtrl: NavController, private auth: AuthService) {
+    this.forgetEmail="";
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ForgotPage');
   }
+  resetPassword() {
+    this.auth.resetPassword(this.forgetEmail);
+  }
 
+  cancel() {
+    this.navCtrl.popTo('LoginPage');
+  }
 }
