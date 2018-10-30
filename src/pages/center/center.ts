@@ -1,5 +1,7 @@
+import { Item } from '../../models/lost-n-found/item.interface';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ITEM_LIST} from '../../mocks/items/items';
 
 /**
  * Generated class for the FirstPage page.
@@ -14,52 +16,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'center.html',
 })
 export class CenterPage {
-  items;
+
+
+  items: Item [];
   constructor(private navCtrl: NavController, private navParams: NavParams) {
-    this.initializeItems();
+    this.items= ITEM_LIST;
+
+    // this.initializeItems();
 
   }
   initializeItems() {
-    this.items = [
-      'Amsterdam',
-      'Bogota',
-      'Buenos Aires',
-      'Cairo',
-      'Dhaka',
-      'Edinburgh',
-      'Geneva',
-      'Genoa',
-      'Glasglow',
-      'Hanoi',
-      'Hong Kong',
-      'Islamabad',
-      'Istanbul',
-      'Jakarta',
-      'Kiel',
-      'Kyoto',
-      'Le Havre',
-      'Lebanon',
-      'Lhasa',
-      'Lima',
-      'London',
-      'Los Angeles',
-      'Madrid',
-      'Manila',
-      'New York',
-      'Olympia',
-      'Oslo',
-      'Panama City',
-      'Peking',
-      'Philadelphia',
-      'San Francisco',
-      'Seoul',
-      'Taipeh',
-      'Tel Aviv',
-      'Tokio',
-      'Uelzen',
-      'Washington'
-    ];
-    
+    this.items= ITEM_LIST;
   }
 
   getItems(ev) {
@@ -72,7 +39,7 @@ export class CenterPage {
     // if the value is an empty string don't filter the items
       if (val && val.trim() != '') {
         this.items = this.items.filter((item) => {
-          return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+          return ((item.title +" "+item.desc).toLowerCase().indexOf(val.toLowerCase()) > -1);
         })
       }
     }
