@@ -27,8 +27,8 @@ export class ProfileViewComponent {
     this.auth.getAuthenticatedUser().subscribe((user: User)=>{
       this.data.getProfile(user).subscribe(profile=>{
           this.userProfile = <Profile>profile;
-          this.loader.dismiss();
-      })
+          this.loader.present();
+        })
     })
   }
 

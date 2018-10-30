@@ -4,6 +4,7 @@ import {LoginFormComponent} from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { EditProfileFormComponent } from './edit-profile-form/edit-profile-form.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { ItemsListComponent } from './items-list/items-list';
 
 
 
@@ -12,14 +13,16 @@ import { ProfileViewComponent } from './profile-view/profile-view.component';
         LoginFormComponent,
     RegisterFormComponent,
     EditProfileFormComponent,
-    ProfileViewComponent
+    ProfileViewComponent,
+    ItemsListComponent
     ],
     imports: [IonicModule],
     exports: [
     LoginFormComponent,
     RegisterFormComponent,
     EditProfileFormComponent,
-    ProfileViewComponent    
+    ProfileViewComponent,
+    ItemsListComponent    
 ]
 
 })

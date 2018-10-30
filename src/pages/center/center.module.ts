@@ -10,4 +10,4 @@ import { CenterPage } from './center';
     IonicPageModule.forChild(CenterPage),
   ],
 })
-export class CenterPageeModule {}
+export class CenterPageModule {}

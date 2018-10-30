@@ -1,39 +1,37 @@
-<!--
-  Generated template for the FirstPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 
 
 
-
-<ion-header>
-<br> 
-</ion-header>
   
 <ion-content >
-  
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-  
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+    <ion-buttons>
+        <button navPush="FoundPage" ion-button>
+          <ion-icon primary>Report found</ion-icon>
+        </button>
+
+      <button navPush="AddNotePage" ion-button>
+        <ion-icon primary>Report loss</ion-icon>
+      </button>
+    </ion-buttons>
+
+
   <ion-list>
+    <!-- <ion-card *ngFor="let item of itemList | async"> -->
+        <ion-card *ngFor="let item of itemList | async ; let i = index"  
+        detail-push navPush="ItemPage" [navParams]="{item:item}">
+      <!-- <ion-avatar item-left> -->
+        <img src="assets/imgs/items/{{i+1}}.jpg"  alt="avatar">
+        <h2 style="text-align: center"> {{ item.itemType }} found</h2>
 
-    <ion-item *ngFor="let item of items">
-      <ion-avatar item-left>
-        <img [src]="item.image"  alt="avatar">
-        <h2> {{ item.user.firstName }}</h2>
+      <!-- </ion-avatar> -->
 
-      </ion-avatar>
-
- 
-        <ion-card-content>
-            <h1> {{item.title}}</h1>
+            <!-- <h1> {{item.desc}}</h1> -->
 
           <p>
             {{item.desc}}
           </p>
-        </ion-card-content>
-    </ion-item>
+    </ion-card>
   </ion-list>
 </ion-content>
 
