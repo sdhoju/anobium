@@ -2,12 +2,17 @@
 
   <ion-card-content>
     <ion-item >
-        <ion-label floating >First Name</ion-label>
-        <ion-input type="text" ></ion-input>
+        <ion-label floating >Name</ion-label>
+        <ion-input [(ngModel)]="profile.displayName" type="text" ></ion-input>
     </ion-item>
-    <ion-item >
-        <ion-label floating >Last Name</ion-label>
-        <ion-input type="text" ></ion-input>
-    </ion-item>
+    
+   <ion-item >
+        <ion-label floating >Phone Number</ion-label>
+        <ion-input [(ngModel)]="profile.phoneNumber" type="text" ></ion-input>
+    </ion-item> 
   </ion-card-content>
 </ion-card>
+<div>
+    <button ion-button (click)="saveProfile()" color="secondary">Save</button>
+    <button ion-button (click)="cancel('TabsPage')" >Cancel</button>
+  </div>

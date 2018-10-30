@@ -1,9 +1,10 @@
-import {User} from '../user/user.interface';
+// import {Profile} from '../profile/profile.interface';
 
 export interface Item{
-    user: User;
-    date: Date;
-    image:string;
-    title: string;
+    // user: Profile;
+    key?: string;
+    date?: Date;
+    image?:string;
+    itemType: string;
     desc: string;
 }

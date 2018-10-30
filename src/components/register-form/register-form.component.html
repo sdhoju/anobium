@@ -2,24 +2,54 @@
 <!-- <ion-item><ion-label floating>First Name</ion-label><ion-input  type="first name"></ion-input></ion-item>  
 <ion-item><ion-label floating>Last Name</ion-label><ion-input type="last name"></ion-input> </ion-item>
 <ion-item><ion-label floating>Phone Number</ion-label><ion-input  type="phone number"></ion-input></ion-item>   -->
+<form #registerForm="ngForm" novalidate>
+
+    <ion-list class="inputs">
+        <ion-item>
+            <ion-label >Name</ion-label>
+            <ion-input [(ngModel)]="account.displayName"  type="text" name="name">
+            </ion-input>
+          </ion-item>
+
+        <ion-item>
+          <ion-label >Phone</ion-label>
+          <ion-input [(ngModel)]="account.phoneNumber"  type="text" name="phone">
+          </ion-input>
+        </ion-item>
+          
 
 
+        <ion-item>
+          <ion-label >Email</ion-label>
+          <ion-input [(ngModel)]="account.email"  type="email" name="email" #email='ngModel' required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+          </ion-input>
+        </ion-item>
+        
+        <div padding *ngIf="email.invalid && email.dirty">
+          <span>Email Address in not valid</span>
+        </div>
+        
+        <ion-item>
+          <ion-label >Password</ion-label>
+          <ion-input [(ngModel)]="account.password" name="password" type="password"
+           #password="ngModel" required
+          ></ion-input>
+        </ion-item>
+        <!-- <div padding *ngIf="password.invalid && password.dirty">
+                 pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" 
 
-<ion-item>
-    <ion-label floating>Email</ion-label>
-    <ion-input [(ngModel)]="account.email" type="email"></ion-input>
- </ion-item>
-<ion-item>
-  <ion-label floating>Password</ion-label>
-  <ion-input [(ngModel)]="account.password"  type="password"></ion-input>
-</ion-item>
+            <span>Password must 6 letters and uppercase lowercase Number/special</span>
+        </div> -->
+      </ion-list>
+      
+  <p>
+    Do you agree to everything? 
+  </p>
 
-<p>
-  Do you agree to everything? 
-</p>
+  <div>
+    <button ion-button (click)="register()" color="secondary" [disabled]="registerForm.invalid">Register</button>
+    <button ion-button (click)="cancel('RegisterPage')" >Cancel</button>
 
-<div>
-  <button ion-button (click)="register()" color="secondary">Register</button>
-  <button ion-button (click)="cancel('RegisterPage')" >Cancel</button>
+  </div>
 
-</div>
+</form>

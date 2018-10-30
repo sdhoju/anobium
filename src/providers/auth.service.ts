@@ -1,5 +1,5 @@
-import { LoginResponse } from './../../models/login/login-response.interface';
-import { Account } from './../../models/account/account.interface';
+import { LoginResponse } from '../models/login/login-response.interface';
+import { Account } from '../models/account/account.interface';
 // import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from 'angularfire2/auth';
@@ -8,8 +8,10 @@ import {AngularFireAuth} from 'angularfire2/auth';
 export class AuthService {
 
   constructor(public auth: AngularFireAuth) {
-    console.log('Hello AuthProvider Provider');
   }
+   getAuthenticatedUser(){
+     return this.auth.authState;
+   }
 
   async createUserWithEmailAndPassword(account: Account){
     try{
@@ -23,15 +25,30 @@ export class AuthService {
     }
   }
 
-
-
-  async signInWithEmailAndPassword(account: Account){
+  async resetPassword(email: string) {
     try{
-      return <LoginResponse>{
-        result: await this.auth.auth.signInWithEmailAndPassword(account.email, account.password)
+      return <any> {
+        result: await this.auth.auth.sendPasswordResetEmail(email)
+        .then(() => console.log("email sent"))
+        .catch((error) => console.log(error))
       }
     }catch(e){
       return <LoginResponse>{
+          error:e
+      }
+    }
+
+
+
+  }
+
+  async signInWithEmailAndPassword(account: Account){
+    try{
+      return <any>{
+        result: await this.auth.auth.signInWithEmailAndPassword(account.email, account.password)
+      }
+    }catch(e){
+      return <any>{
           error:e
       }
     }

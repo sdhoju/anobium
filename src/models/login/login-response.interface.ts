@@ -1,8 +1,16 @@
 export interface LoginResponse{
     result?: {
-        email?: string;
-        uid?: string;
-    }
+        user?: {
+            uid?: string;
+            displayName?: string;
+            photoURL?: string;
+            email?: string;
+            phoneNumber?: string;
+        },
+        additionalUserInfo?: {
+            isNewUser?: Boolean
+        }
+    };
     error?:{
         code?: string;
         message?: string;

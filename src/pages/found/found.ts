@@ -1,12 +1,9 @@
+import { TabsPage } from './../tabs/tabs';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DataService } from './../../providers/data.service';
+import { Item } from './../../models/lost-n-found/item.interface';
 
-/**
- * Generated class for the SecondPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -14,9 +11,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'found.html',
 })
 export class FoundPage {
+  item: Item = {
+    itemType: '',
+    desc: ''
+  };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
+  constructor(private navCtrl: NavController, private navParams: NavParams, private database: DataService) {
+   
   }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad AddNotePage');
+  }
  
+  addItem(item: Item) {
+    this.database.createItem(item).then(ref => {
+      this.navCtrl.setRoot('TabsPage');
+    })
+  }
 }

@@ -1,14 +1,15 @@
-import { Item } from '../../models/lost-n-found/item.interface';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, Loading } from 'ionic-angular';
 import { ITEM_LIST} from '../../mocks/items/items';
+import { Observable } from 'rxjs/Observable';
 
-/**
- * Generated class for the FirstPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { DataService } from './../../providers/data.service';
+import { Item } from './../../models/lost-n-found/item.interface';
+import 'rxjs/add/operator/map'
+import { filter } from 'rxjs/operators';
+
+
+
 
 @IonicPage()
 @Component({
@@ -19,14 +20,35 @@ export class CenterPage {
 
 
   items: Item [];
-  constructor(private navCtrl: NavController, private navParams: NavParams) {
-    this.items= ITEM_LIST;
 
-    // this.initializeItems();
+  itemList: Observable<Item []>;
+  loader: Loading;
+  c=1;
+
+
+
+  constructor(private loading: LoadingController, private navCtrl: NavController, private navParams: NavParams, private database: DataService) {
+    this.loader=this.loading.create({
+      content:"Loading..."
+    })
+    
+    this.initializeItems();
 
   }
   initializeItems() {
-    this.items= ITEM_LIST;
+    // this.items= this.itemList;
+    this.loader.present();
+
+    this.itemList = this.database.getItemList()
+    .snapshotChanges()
+    .map(
+      changes=> {
+        return changes.map(c=>({
+          key: c.payload.key,...c.payload.val()
+        }))
+      });
+      this.loader.dismiss();
+
   }
 
   getItems(ev) {
@@ -39,7 +61,7 @@ export class CenterPage {
     // if the value is an empty string don't filter the items
       if (val && val.trim() != '') {
         this.items = this.items.filter((item) => {
-          return ((item.title +" "+item.desc).toLowerCase().indexOf(val.toLowerCase()) > -1);
+          return ((item.itemType +" "+item.desc).toLowerCase().indexOf(val.toLowerCase()) > -1);
         })
       }
     }
