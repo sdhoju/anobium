@@ -33,10 +33,11 @@ export class EditProfileFormComponent implements OnDestroy{
       const result = await this.data.saveProfile(this.authenticatedUser,this.profile);
       this.saveProfileResult.emit(result);
     }
+
   }
 
   cancel(){
-    this.navCtrl.popTo('ProfilePage');
+    this.navCtrl.pop();
   }
 
   ngOnDestroy(): void{

@@ -14,11 +14,8 @@ export class EditProfilePage {
 
   saveProfileResult(event: Boolean){
     console.log(event)
-    event ? this.navCtrl.popTo('ProfilePage'): console.log("Not Saved")
+    event ? this.navCtrl.pop(): console.log("Not Saved")
 
-  }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EditProfilePage');
   }
 
 }

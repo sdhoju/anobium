@@ -34,27 +34,29 @@ export class AuthService {
       return <any> {
         result: await this.auth.auth.sendPasswordResetEmail(email)
         .then(() => this.toast.create({
-              message: `Email Sent to : ${email}`,
-              duration: 3000,
-              position: 'top'
-            }).present()
+                      message: `Email Sent to : ${email}`,
+                        duration: 3000,
+                        position: 'top'
+                      }).present()
             )
         .catch((error) =>  this.toast.create({
-          message: error.message,
-          duration: 3000,
-          position: 'top'
-        }).present())
+                            message: error.message,
+                            duration: 3000,
+                            position: 'top'
+                          }).present())
+        }
       }
-      }catch(e){
-      return <LoginResponse>{
-          error:e
-      }
-    }
+      catch(e){return <LoginResponse>{error:e}}
   }
   
+
+  get Session() {
+    return this.auth.authState;
+}
   async signOut(){
     try{
          await this.auth.auth.signOut();
+
     }catch(e){
           console.log(e); 
     }

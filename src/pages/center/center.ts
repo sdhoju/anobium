@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, Loading } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, Loading, Platform, ActionSheetController } from 'ionic-angular';
 import { ITEM_LIST} from '../../mocks/items/items';
 import { Observable } from 'rxjs/Observable';
 
@@ -27,7 +27,11 @@ export class CenterPage {
 
 
 
-  constructor(private loading: LoadingController, private navCtrl: NavController, private navParams: NavParams, private database: DataService) {
+  constructor(private loading: LoadingController,
+     private navCtrl: NavController, private navParams: NavParams,
+     public platform: Platform,
+     public actionsheetCtrl: ActionSheetController,
+      private database: DataService) {
     this.loader=this.loading.create({
       content:"Loading..."
     })
@@ -35,10 +39,10 @@ export class CenterPage {
     this.initializeItems();
 
   }
+
   initializeItems() {
     // this.items= this.itemList;
     this.loader.present();
-
     this.itemList = this.database.getItemList()
     .snapshotChanges()
     .map(
@@ -50,6 +54,43 @@ export class CenterPage {
       this.loader.dismiss();
 
   }
+
+
+
+  openMenu() {
+    let actionSheet = this.actionsheetCtrl.create({
+      title: 'Report Lost or Found',
+      cssClass: 'action-sheets-basic-page',
+      buttons: [
+        
+        {
+          text: 'Report a Loss',
+          icon: !this.platform.is('ios') ? 'share' : null,
+          handler: () => {
+            this.navCtrl.push("FoundPage")
+          }
+        },
+        {
+          text: 'Report a Found',
+          icon: !this.platform.is('ios') ? 'arrow-dropright-circle' : null,
+          handler: () => {
+            this.navCtrl.push("ThirdPage")
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel', // will always sort to be on the bottom
+          icon: !this.platform.is('ios') ? 'close' : null,
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
+
 
   getItems(ev) {
     // Reset items back to all of the items

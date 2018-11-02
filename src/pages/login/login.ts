@@ -22,7 +22,6 @@ export class LoginPage {
     if(!event.error){
       // this.navCtrl.setRoot("TabsPage");
       this.data.getProfile(<User>event.result.user).subscribe(profile =>{
-
         // console.log(profile);
         profile!=null ?   this.navCtrl.setRoot("TabsPage"): this.navCtrl.setRoot("EditProfilePage")
 

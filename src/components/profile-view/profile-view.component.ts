@@ -32,11 +32,7 @@ export class ProfileViewComponent {
     })
   }
 
-  //TODO 
-  signOut(){
-    // this.auth.signOut();
-    this.navCtrl.setRoot('LoginPage');
-  }
+ 
 
   editProfile(){
     this.navCtrl.push('EditProfilePage');

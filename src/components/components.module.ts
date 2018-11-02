@@ -5,7 +5,6 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { EditProfileFormComponent } from './edit-profile-form/edit-profile-form.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { ItemsListComponent } from './items-list/items-list';
-import { MenuComponent } from './menu/menu.component';
 
 
 
@@ -16,7 +15,6 @@ import { MenuComponent } from './menu/menu.component';
         EditProfileFormComponent,
         ProfileViewComponent,
         ItemsListComponent,
-    MenuComponent
     ],
     imports: [IonicModule],
     exports: [
@@ -25,7 +23,6 @@ import { MenuComponent } from './menu/menu.component';
         EditProfileFormComponent,
         ProfileViewComponent,
         ItemsListComponent,
-        MenuComponent    
 ]
 
 })

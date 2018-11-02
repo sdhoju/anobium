@@ -1,28 +1,41 @@
 
 
 
-  
+
+  <ion-header>
+      <ion-navbar>
+          <!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar> -->
+          <ion-searchbar ></ion-searchbar>
+
+        <ion-buttons left>
+          <button ion-button icon-only menuToggle>
+            <ion-icon name='menu'></ion-icon>
+          </button>
+          
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button icon-only add (click)="openMenu()">
+                <ion-icon name='add' >Report</ion-icon>
+              </button>
+        </ion-buttons>
+
+
+       
+      </ion-navbar>
+    </ion-header>
+
 <ion-content >
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
-    <ion-buttons>
-        <button navPush="FoundPage" ion-button>
-          <ion-icon primary>Report found</ion-icon>
-        </button>
 
-      <button navPush="AddNotePage" ion-button>
-        <ion-icon primary>Report loss</ion-icon>
-      </button>
-    </ion-buttons>
-
+   
 
   <ion-list>
     <!-- <ion-card *ngFor="let item of itemList | async"> -->
         <ion-card *ngFor="let item of itemList | async ; let i = index"  
-        detail-push navPush="ItemPage" [navParams]="{item:item}">
+        detail-push navPush="CenterPage" [navParams]="{item:item}">
       <!-- <ion-avatar item-left> -->
-        <img src="assets/imgs/items/{{i+1}}.jpg"  alt="avatar">
-        <h2 style="text-align: center"> {{ item.itemType }} found</h2>
+        <!-- <img src="assets/imgs/items/{{i+1}}.jpg"  alt="avatar"> -->
+        <h2 style="text-align: center"> {{ item.itemType }} Lost</h2>
 
       <!-- </ion-avatar> -->
 

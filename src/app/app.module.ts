@@ -13,11 +13,12 @@ import {Camera} from '@ionic-native/camera';
 import { MyApp } from './app.component';
 import { AuthService} from '../providers/auth.service';
 import { FormsModule } from '@angular/forms';
-
+import { MenuComponent } from '../components/menu/menu.component';
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    MenuComponent
 
   ],
   imports: [
@@ -26,7 +27,7 @@ import { FormsModule } from '@angular/forms';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
