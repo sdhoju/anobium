@@ -25,12 +25,14 @@ export class RegisterFormComponent {
   async register() {
     try{
       const result = await this.auth.createUserWithEmailAndPassword(this.account)
-
       this.registerStatus.emit(result);
+      this.navCtrl.pop();
     }catch(e){
       console.error(e);
       this.registerStatus.emit(e);
     } 
+   
+
   }
   navigateToPage(pageName: string):void {
     this.navCtrl.push(pageName);

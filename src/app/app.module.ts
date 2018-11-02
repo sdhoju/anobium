@@ -15,6 +15,7 @@ import { AuthService} from '../providers/auth.service';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from '../components/menu/menu.component';
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -28,6 +29,7 @@ import { MenuComponent } from '../components/menu/menu.component';
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
