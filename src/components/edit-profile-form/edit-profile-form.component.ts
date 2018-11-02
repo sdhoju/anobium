@@ -1,3 +1,4 @@
+import { NavController } from 'ionic-angular';
 import { Component, OnDestroy, EventEmitter, Output } from '@angular/core';
 import {Subscription} from 'rxjs/Subscription';
 
@@ -19,7 +20,7 @@ export class EditProfileFormComponent implements OnDestroy{
   @Output() saveProfileResult: EventEmitter<Boolean>;
   profile = {} as Profile;
 
-  constructor(private auth: AuthService, private data: DataService) {
+  constructor(private auth: AuthService, private data: DataService, private navCtrl: NavController) {
     this.saveProfileResult= new EventEmitter<Boolean>();
     
     this.authenticatedUser$ = this.auth.getAuthenticatedUser().subscribe((user:User) =>{
@@ -34,7 +35,9 @@ export class EditProfileFormComponent implements OnDestroy{
     }
   }
 
-  
+  cancel(){
+    this.navCtrl.popTo('ProfilePage');
+  }
 
   ngOnDestroy(): void{
   this.authenticatedUser$.unsubscribe();

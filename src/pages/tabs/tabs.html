@@ -1,9 +1,12 @@
 
 
 <ion-tabs set>
-  <ion-tab [root]="tab5Root"   tabIcon="people"></ion-tab>
-  <ion-tab [root]="tab2Root" tabIcon="megaphone" dark></ion-tab>
-  <ion-tab [root]="tab1Root"  tabIcon="bug"></ion-tab>
-  <ion-tab [root]="tab3Root" tabIcon="sad"></ion-tab>
-  <ion-tab [root]="tab4Root" tabIcon="mail"></ion-tab>
+  <ion-tab [root]="tab5Root"   tabIcon="people" tabTitle="Profile"></ion-tab>
+  <!-- <ion-tab [root]="tab2Root" tabIcon="megaphone" dark tabTitle="Found"></ion-tab> -->
+  <ion-tab [root]="tab1Root"  tabIcon="bug" tabTitle="Lost and Found"></ion-tab>
+  <ion-tab [root]="tab3Root" tabIcon="sad" tabTitle="Lost"></ion-tab>
+  <ion-tab [root]="tab4Root" tabIcon="mail" tabTitle="About"></ion-tab>
+  <app-menu-view></app-menu-view>
+
+
 </ion-tabs>

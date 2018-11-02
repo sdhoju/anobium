@@ -27,9 +27,15 @@ export class ProfileViewComponent {
     this.auth.getAuthenticatedUser().subscribe((user: User)=>{
       this.data.getProfile(user).subscribe(profile=>{
           this.userProfile = <Profile>profile;
-          this.loader.present();
+          this.loader.dismiss();
         })
     })
+  }
+
+  //TODO 
+  signOut(){
+    // this.auth.signOut();
+    this.navCtrl.setRoot('LoginPage');
   }
 
   editProfile(){

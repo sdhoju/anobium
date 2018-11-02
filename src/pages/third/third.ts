@@ -1,12 +1,8 @@
+import { FIREBASE_CONFIG } from './../../app/app.firebase.config';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ThirdPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController } from 'ionic-angular';
+import {storage} from 'firebase'
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @IonicPage()
 @Component({
@@ -15,11 +11,49 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ThirdPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private camera: Camera,public navCtrl: NavController) {
   }
+  async takePhoto(){
+    try{
+      const options: CameraOptions ={
+        quality: 50,
+        targetHeight: 600,
+        targetWidth: 600,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE,
+        correctOrientation:true
+      }
+      
+      const result = await  this.camera.getPicture(options);
+      const image = `data:image/jpeg;base64,${result}`
+      const pictures = storage().ref(`pictures/${(Math.random()*99999999)}`);
+      pictures.putString(image,'data_url')
+    }
+    catch(e){
+      console.error(e);
+    }
+  }
+//   public getphoto(){
+//     let imgUrl: string;
+//     try{
+//       storage().ref().child("/venues/" + image ).getDownloadURL().then(function(url){
+//         console.log("log1: " + url);
+//         return url;
+//       });
+//     }
+//     catch(e){
+//       console.log(e);
+//     }   
+// }
+  async getphoto(){
+    try{
+      const pictures = storage().ref('picture');
+      console.log(pictures);
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ThirdPage');
+    }catch(e){
+      console.error(e);
+    }
   }
 
 }

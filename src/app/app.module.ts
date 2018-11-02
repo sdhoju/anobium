@@ -8,9 +8,8 @@ import { AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 
-
 import {FIREBASE_CONFIG} from './app.firebase.config';
-
+import {Camera} from '@ionic-native/camera';
 import { MyApp } from './app.component';
 import { AuthService} from '../providers/auth.service';
 import { FormsModule } from '@angular/forms';
@@ -38,9 +37,11 @@ import { FormsModule } from '@angular/forms';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
-    DataService
+    DataService,
+    
   ]
 })
 export class AppModule {}

@@ -13,6 +13,7 @@ export class EditProfilePage {
   }
 
   saveProfileResult(event: Boolean){
+    console.log(event)
     event ? this.navCtrl.popTo('ProfilePage'): console.log("Not Saved")
 
   }

@@ -44,11 +44,11 @@ export class DataService {
   }
 
   updateItem(item: Item){
-    return this.itemListRef.update(item.item_ID, item);
+    return this.itemListRef.update(item.key, item);
   }
 
   deleteItem(item: Item){
-    return this.itemListRef.remove(item.item_ID);
+    return this.itemListRef.remove(item.key);
   }
 
 

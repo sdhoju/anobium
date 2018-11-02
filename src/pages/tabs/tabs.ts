@@ -10,20 +10,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TabsPage {
   tab1Root: string;
-  tab2Root: string;
+  // tab2Root: string;
   tab3Root: string;
   tab4Root: string;
   tab5Root: string;
 
 
-  constructor() {
+  constructor(private navCtrl: NavController) {
     this.tab1Root = 'CenterPage';
-    this.tab2Root = 'FoundPage';
+    // this.tab2Root = 'FoundPage';
     this.tab3Root = 'ThirdPage'
-    this.tab4Root = 'ProfilePage';
-    this.tab5Root = 'AboutPage';
+    this.tab4Root = 'AboutPage';
+    this.tab5Root = 'ProfilePage';
   }
-  
+  signOut(){
+    // this.auth.signOut();
+    this.navCtrl.setRoot('LoginPage');
+  }
 }
 
 

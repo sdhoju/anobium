@@ -15,9 +15,6 @@ export class ForgotPage {
     this.forgetEmail="";
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ForgotPage');
-  }
   resetPassword() {
     this.auth.resetPassword(this.forgetEmail);
   }

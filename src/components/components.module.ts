@@ -5,24 +5,27 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { EditProfileFormComponent } from './edit-profile-form/edit-profile-form.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { ItemsListComponent } from './items-list/items-list';
+import { MenuComponent } from './menu/menu.component';
 
 
 
 @NgModule({
     declarations: [
         LoginFormComponent,
-    RegisterFormComponent,
-    EditProfileFormComponent,
-    ProfileViewComponent,
-    ItemsListComponent
+        RegisterFormComponent,
+        EditProfileFormComponent,
+        ProfileViewComponent,
+        ItemsListComponent,
+    MenuComponent
     ],
     imports: [IonicModule],
     exports: [
-    LoginFormComponent,
-    RegisterFormComponent,
-    EditProfileFormComponent,
-    ProfileViewComponent,
-    ItemsListComponent    
+        LoginFormComponent,
+        RegisterFormComponent,
+        EditProfileFormComponent,
+        ProfileViewComponent,
+        ItemsListComponent,
+        MenuComponent    
 ]
 
 })
