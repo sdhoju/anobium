@@ -1,9 +1,7 @@
-<!-- <img src ="assets/imgs/logo.png" alt="logo"> -->
 
+<img src ="assets/imgs/logo.png"  style="padding:40px;" alt="logo">
 <form #registerForm="ngForm" novalidate>
     <ion-list class="inputs">
-
-
         <ion-item>
           <ion-label >Email</ion-label>
           <ion-input [(ngModel)]="account.email"  type="email" name="email" #email='ngModel' required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
@@ -25,15 +23,19 @@
 
             <span>Password must 6 letters and uppercase lowercase Number/special</span>
         </div> -->
+        <ion-item style="padding-left:30%;">
+            <button ion-button (click)="register()" color="secondary" [disabled]="registerForm.invalid">Register</button>
+            <button ion-button (click)="cancel('RegisterPage')" >Cancel</button>
+        </ion-item>
+
       </ion-list>
       
-  <p>
-    Do you agree to everything? 
-  </p>
+
 
   <div>
-    <button ion-button (click)="register()" color="secondary" [disabled]="registerForm.invalid">Register</button>
-    <button ion-button (click)="cancel('RegisterPage')" >Cancel</button>
+    
+    
+    <p>Do you agree to everything? </p>
 
   </div>
 

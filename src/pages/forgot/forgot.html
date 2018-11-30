@@ -1,18 +1,20 @@
 
 <ion-content padding>
   <form>
-    <p> Enter your Email Address.</p>
-    <ion-item>
-        <ion-label >Email      </ion-label>
+      <img src ="assets/icon/forget.png"  alt="logo">
 
+    <p style="text-align: center; color:white; font-size:1.8em;"> Enter your Email Address.</p>
+    <ion-item>
+        <ion-label ><ion-icon name="mail" style="font-size:1.8em;"></ion-icon> </ion-label>
+        
         <ion-input [(ngModel)]="forgetEmail"  type="text" name="phone"></ion-input>
       </ion-item>
         
 
-      <div class="reset-buttons">
-          <button ion-button (click)="resetPassword()">Reset Password</button>
-          <button ion-button (click)="cancel()" >Cancel</button>
-        </div>
+      <div class="reset-buttons" style="padding:10px; margin-left:30%;">
+          <button ion-button (click)="resetPassword()" color="newcolor">Send Link</button>
+          <span (click)="cancel()" >Cancel</span>
+      </div>
 
   </form>
 </ion-content>
