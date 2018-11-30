@@ -9,7 +9,20 @@
 
 <ion-content padding>
    <button ion-button (click)="takePhoto()">Take a Photo</button>
-   <!-- <button ion-button (click)="getphoto()">get Photo</button> -->
-  
-
+   <!-- <button ion-button (click)="getVenueImage('18655035.463299204.jpg')">get Photo</button> -->
+    <br>
+   <ion-item>
+      <ion-label>Found a/an </ion-label>
+      <ion-input [(ngModel)]="item.itemType" placeholder="Phone"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>TODO image</ion-label>
+        <ion-textarea [(ngModel)]="item.image" placeholder="1.jpg"></ion-textarea>
+      </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-textarea [(ngModel)]="item.desc" placeholder="Found a funny picture "></ion-textarea>
+    </ion-item>
+   
+    <button ion-button block (click)="addItem(item)">Report Found</button>
 </ion-content>

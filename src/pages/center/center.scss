@@ -10,11 +10,14 @@ page-center {
         font-size: 1.5em!important;
         }
     .found{
-        min-height: 200px;
-        background: transparent;
+        min-height: 150px;
+        // background: transparent;
         $action-sheet-ios-padding-top : 0; 
     }
     .found p{
         font-size:1.2em; 
+    }
+    .larger {
+        font-size: 120px;
     }
 }

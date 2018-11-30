@@ -18,7 +18,9 @@ export class LostPage {
   };
 
   
-  constructor(private navCtrl: NavController, private navParams: NavParams, private database: DataService) {
+  constructor(private navCtrl: NavController,
+     private navParams: NavParams,
+      private database: DataService) {
    
   }
 
@@ -27,7 +29,8 @@ export class LostPage {
   }
  
   addItem(item: Item) {
-    this.database.createItem(item).then(ref => {
+    this.database.createItem(item).then(ref => 
+      {
       this.navCtrl.setRoot('TabsPage');
     })
   }

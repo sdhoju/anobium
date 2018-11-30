@@ -12,7 +12,8 @@ import {User } from 'firebase/app';
 @Injectable()
 export class DataService {
   profileObject: AngularFireObject <any>
-
+  itemObject:AngularFireObject <any>
+    //Refercence https://grokonez.com/firebase/ionic-3-firebase-example-crud-operations-with-firebase-realtime-database
   private itemListRef = this.database.list<Item>('item-list');
 
   constructor(private database: AngularFireDatabase) {
@@ -35,6 +36,10 @@ export class DataService {
     }
   }
 
+  getItems(item: Item){
+    this.itemObject = this.database.object(`/item-list/${item.key}`);
+    return this.itemObject.valueChanges();
+  }
   getItemList(){
     return this.itemListRef;
   }
@@ -51,5 +56,8 @@ export class DataService {
     return this.itemListRef.remove(item.key);
   }
 
+  serchUser(desc: string){
+
+  }
 
 }

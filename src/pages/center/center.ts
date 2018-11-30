@@ -26,6 +26,8 @@ export class CenterPage {
   c=1;
   Lost_and_Found: any
 
+  query: string;
+
 
   constructor(private loading: LoadingController,
      private navCtrl: NavController, private navParams: NavParams,
@@ -88,7 +90,9 @@ export class CenterPage {
     actionSheet.present();
   }
 
+  searchItem(query: string){
 
+  }
 
   getItems(ev) {
     // Reset items back to all of the items

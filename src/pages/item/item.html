@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar>
+        <!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar> -->
+        <!-- <ion-searchbar></ion-searchbar> -->
+        <ion-segment [(ngModel)]="Lost_and_Found">
+            <ion-segment-button   value="Lost">
+              <ion-icon name="sad"></ion-icon>Lost items
+                
+            </ion-segment-button>
+            <ion-segment-button value="found">
+                <ion-icon name="happy"> </ion-icon>Found items
+              
+            </ion-segment-button>
+          </ion-segment>
+      
+    </ion-navbar>
+
+      
+  </ion-header>
+
+
+<ion-content >
+  <div [ngSwitch]="Lost_and_Found">
+
+      <ion-list *ngSwitchCase="'Lost'">  
+          <ion-item-group>
+            
+          <ion-item *ngFor="let item of itemList | async ;"[hidden]="item.status" >
+    
+            <h1> {{ item.itemType }}</h1>
+            
+              {{item.desc}}
+          </ion-item> 
+        </ion-item-group>
+
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'found'">
+          <ion-item class='found' *ngFor="let item of itemList | async ;" [hidden]="!item.status" >
+          
+          <ion-thumbnail item-start class="larger">
+              <img src ="assets/imgs/items/{{item.image}}" alt="logo">
+            </ion-thumbnail>
+            <h2 > {{ item.itemType }} found</h2>
+            <p>
+              {{item.desc}}
+            </p>
+
+          </ion-item>
+      </ion-list>
+    </div>
+
+</ion-content>
+

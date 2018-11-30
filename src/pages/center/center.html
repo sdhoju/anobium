@@ -1,7 +1,7 @@
   <ion-header>
       <ion-navbar>
           <!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar> -->
-          <ion-searchbar ></ion-searchbar>
+          <!-- <ion-searchbar [(ngModel="query")] (ionInput)="searchItem(query)"></ion-searchbar> -->
 
         <ion-buttons left>
           <button ion-button icon-only menuToggle>
@@ -34,32 +34,30 @@
     <div [ngSwitch]="Lost_and_Found">
 
         <ion-list *ngSwitchCase="'Lost'">  
-            <ion-item-group>
+            <ion-item-group >
               
-            <ion-item *ngFor="let item of itemList | async ; let i = index"  
-            detail-push navPush="CenterPage" [navParams]="{item:item}">
-      
+            <ion-item *ngFor="let item of itemList | async ;"  [hidden]="item.status"
+            detail-push navPush="LostviewPage" [navParams]="{item:item}">
+            <div >
               <h1> {{ item.itemType }}</h1>
-              
-                {{item.desc}}
+                  {{item.desc}} 
+              </div>
             </ion-item> 
           </ion-item-group>
 
         </ion-list>
 
         <ion-list *ngSwitchCase="'found'">
-            <ion-item class='found' *ngFor="let item of itemList | async ; let i = index"  
-            detail-push navPush="CenterPage" [navParams]="{item:item}">
-            
-            <ion-thumbnail item-start>
-                <img src ="assets/imgs/logo.png" alt="logo">
+            <ion-item class='found' *ngFor="let item of itemList | async ;"  [hidden]="!item.status"
+            detail-push navPush="FoundviewPage" [navParams]="{item:item}">
+            <ion-thumbnail item-start class="larger">
+                  <img src ="assets/imgs/items/{{item.image}}" alt="logo">
               </ion-thumbnail>
               <h2 > {{ item.itemType }} found</h2>
               <p>
                 {{item.desc}}
               </p>
-              <button ion-button clear item-end>Detail</button>
-
+              <!-- <button ion-button clear item-end>Detail</button> -->
             </ion-item>
         </ion-list>
       </div>

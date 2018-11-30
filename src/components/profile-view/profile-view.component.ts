@@ -23,16 +23,14 @@ export class ProfileViewComponent {
   }
 
   ngOnInit():void{
-    this.loader.present();
-    this.auth.getAuthenticatedUser().subscribe((user: User)=>{
-      this.data.getProfile(user).subscribe(profile=>{
-          this.userProfile = <Profile>profile;
+        this.loader.present();
+          this.auth.getAuthenticatedUser().subscribe((user: User)=>{
+            this.data.getProfile(user).subscribe(profile=>{
+              this.userProfile = <Profile>profile;
           this.loader.dismiss();
         })
     })
   }
-
- 
 
   editProfile(){
     this.navCtrl.push('EditProfilePage');

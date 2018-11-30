@@ -1,8 +1,10 @@
-import { FIREBASE_CONFIG } from '../../app/app.firebase.config';
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import {storage} from 'firebase'
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { DataService } from '../../providers/data.service';
+
+import { Item } from '../../models/lost-n-found/item.interface';
 
 @IonicPage()
 @Component({
@@ -10,8 +12,15 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
   templateUrl: 'found.html',
 })
 export class FoundPage {
+  item: Item = {
+    
+    image: '',
+    itemType: '',
+    desc: '',
+    status:true
+  };
 
-  constructor(private camera: Camera,public navCtrl: NavController) {
+  constructor(private camera: Camera,public navCtrl: NavController,  private database: DataService) {
   }
   async takePhoto(){
     try{
@@ -37,7 +46,7 @@ export class FoundPage {
 
   async getphoto(){
     try{
-      const pictures = storage().ref('picture');
+      const pictures = storage().ref('picture/');
       console.log(pictures);
 
     }catch(e){
@@ -45,4 +54,22 @@ export class FoundPage {
     }
   }
 
+  public getVenueImage(image: string){
+    let imgUrl: string;
+    try{
+      const pictures = storage().ref('picture/'+ image);
+      console.log(pictures);
+
+      
+    }
+    catch(e){
+      console.log(e);
+    }   
+}
+addItem(item: Item) {
+  this.database.createItem(item).then(ref => 
+    {
+    this.navCtrl.setRoot('TabsPage');
+  })
+}
 }

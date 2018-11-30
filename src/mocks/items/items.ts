@@ -5,7 +5,7 @@ const userList = USER_LIST;
 
 const itemList: Item [] = [
     {
-        // user: user, 
+        user: userList[0], 
         date: new Date, 
         image:'assets/imgs/items/4.jpg',
         itemType:'phone',
@@ -13,7 +13,7 @@ const itemList: Item [] = [
         status:false
      },
      {
-        // user: user, 
+        user: userList[1], 
         date: new Date, 
         image:'assets/imgs/items/3.jpg',
         itemType:'fork',
@@ -22,7 +22,7 @@ const itemList: Item [] = [
  
      },
      {
-        // user: user, 
+        user: userList[1], 
         date: new Date, 
         image:'assets/imgs/items/2.jpg',
         itemType:'Camera',
@@ -31,7 +31,7 @@ const itemList: Item [] = [
  
      },
      {
-        // user: user, 
+        user: userList[2], 
         date: new Date, 
         image:'assets/imgs/items/5.jpg',
         itemType:'thumb Drive',
