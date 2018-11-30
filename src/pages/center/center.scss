@@ -1,5 +1,20 @@
-page-first {
-    ion-searchbar{
+page-center {
+    ion-searchbar,ion-navbar{
         background: transparent;
+    }
+   ion-segment{
+    height: 40px;
+    }
+    ion-segment-button {
+        height: 40px;
+        font-size: 1.5em!important;
+        }
+    .found{
+        min-height: 200px;
+        background: transparent;
+        $action-sheet-ios-padding-top : 0; 
+    }
+    .found p{
+        font-size:1.2em; 
     }
 }

@@ -28,7 +28,9 @@ export class LoginFormComponent {
   navigateToPage(pageName: string):void {
     //condtion to check if the page is TabsPage or other pages
     // pageName =='TabsPage' ?  this.navCtrl.setRoot(pageName): 
-    this.navCtrl.push(pageName);
+    pageName =='TabsPage' ?  this.navCtrl.setRoot(pageName): this.navCtrl.push(pageName);
+
+    // this.navCtrl.push(pageName);
   }
 
 }

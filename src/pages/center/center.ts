@@ -24,7 +24,7 @@ export class CenterPage {
   itemList: Observable<Item []>;
   loader: Loading;
   c=1;
-
+  Lost_and_Found: any
 
 
   constructor(private loading: LoadingController,
@@ -37,7 +37,7 @@ export class CenterPage {
     })
     
     this.initializeItems();
-
+    this.Lost_and_Found="Lost";
   }
 
   initializeItems() {
@@ -55,8 +55,6 @@ export class CenterPage {
 
   }
 
-
-
   openMenu() {
     let actionSheet = this.actionsheetCtrl.create({
       title: 'Report Lost or Found',
@@ -65,22 +63,22 @@ export class CenterPage {
         
         {
           text: 'Report a Loss',
-          icon: !this.platform.is('ios') ? 'share' : null,
+          icon: 'sad',
+          handler: () => {
+            this.navCtrl.push("LostPage")
+          }
+        },
+        {
+          text: 'Report a Found',
+          icon: 'cube',
           handler: () => {
             this.navCtrl.push("FoundPage")
           }
         },
         {
-          text: 'Report a Found',
-          icon: !this.platform.is('ios') ? 'arrow-dropright-circle' : null,
-          handler: () => {
-            this.navCtrl.push("ThirdPage")
-          }
-        },
-        {
           text: 'Cancel',
           role: 'cancel', // will always sort to be on the bottom
-          icon: !this.platform.is('ios') ? 'close' : null,
+          icon: 'close' ,
           handler: () => {
             console.log('Cancel clicked');
           }

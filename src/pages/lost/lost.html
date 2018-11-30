@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        Report a Loss
+      </ion-title>
+      <ion-buttons right>
+        <button ion-button icon-only menuToggle>
+          <ion-icon name='menu'></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+ 
+<ion-content padding>
+ 
+  <ion-item>
+    <ion-label>I Lost a/an </ion-label>
+    <ion-input [(ngModel)]="item.itemType" placeholder="Phone"></ion-input>
+  </ion-item>
+ 
+  <ion-item>
+    <ion-label>Description</ion-label>
+    <ion-textarea [(ngModel)]="item.desc" placeholder="Found a Funny Phone at union"></ion-textarea>
+  </ion-item>
+ 
+  <button ion-button block (click)="addItem(item)">Report this Lost</button>
+</ion-content>

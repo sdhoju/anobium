@@ -9,45 +9,36 @@ const itemList: Item [] = [
         date: new Date, 
         image:'assets/imgs/items/4.jpg',
         itemType:'phone',
-        desc:'Anyone missing this phone?' 
+        desc:'Anyone missing this phone?', 
+        status:false
      },
      {
         // user: user, 
         date: new Date, 
         image:'assets/imgs/items/3.jpg',
         itemType:'fork',
-        desc:'Did anyone lose a fork ?' 
+        desc:'Found a fork',
+        status:true
+ 
      },
      {
         // user: user, 
         date: new Date, 
         image:'assets/imgs/items/2.jpg',
         itemType:'Camera',
-        desc:'looks like a Camera' 
+        desc:'looks like a Camera',
+        status:false
+ 
      },
      {
         // user: user, 
         date: new Date, 
         image:'assets/imgs/items/5.jpg',
         itemType:'thumb Drive',
-        desc:'HAHA! look what I found anyone missing their Thumb          drive?' 
+        desc:'HAHA! look what I found anyone missing their Thumb          drive?',
+        status:false
+ 
      }
 ];
-
-
-
-
-
-
-// userList.forEach(user=>{
-//     itemList.push({
-//         // user: user, 
-//         date: new Date, 
-//         image:'assets/imgs/items/3.jpg',
-//         itemType:'fork',
-//         desc:'Did anyone lose a fork ?' 
-//      })
-// })
-
 
 export const ITEM_LIST = itemList;

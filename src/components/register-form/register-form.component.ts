@@ -19,14 +19,16 @@ export class RegisterFormComponent {
     private navCtrl: NavController, 
     private auth: AuthService,
     private toast: ToastController) {
-     this.registerStatus=new EventEmitter<LoginResponse>(); 
+    this.registerStatus=new EventEmitter<LoginResponse>(); 
   }
   
   async register() {
     try{
       const result = await this.auth.createUserWithEmailAndPassword(this.account)
       this.registerStatus.emit(result);
-      this.navCtrl.pop();
+      this.navCtrl.setRoot('TabsPage');
+      this.navCtrl.push('EditProfilePage');
+      // this.navCtrl.pop();
     }catch(e){
       console.error(e);
       this.registerStatus.emit(e);
@@ -35,7 +37,9 @@ export class RegisterFormComponent {
 
   }
   navigateToPage(pageName: string):void {
+    this.navCtrl.setRoot('TabsPage');
     this.navCtrl.push(pageName);
+
   }
   cancel(pageName: string): void{ 
     this.navCtrl.popTo(pageName);

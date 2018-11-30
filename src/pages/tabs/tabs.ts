@@ -10,25 +10,20 @@ import { IonicPage } from 'ionic-angular';
 export class TabsPage {
   profilePage: string;
   tab3Root: string;
+  message: string;
   aboutPage: string;
   mainPage: string;
 
 
   constructor() {
     this.mainPage = 'CenterPage';
-
+    this.message = 'FourthPage'
     this.tab3Root = 'ThirdPage'
     this.aboutPage = 'AboutPage';
     this.profilePage = 'ProfilePage';
   }
 
-  
-  // logout(){
-  //  // this.navCtrl.setRoot
-  //  // const root = this.app.getRootNav();
-  //   //root.popToRoot();
-  //   this.app.getRootNav().setRoot(LoginPage);
-  // }
+
 }
 
 

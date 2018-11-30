@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ThirdPage } from './third';
+import { LostPage } from './lost';
 
 @NgModule({
   declarations: [
-    ThirdPage,
+    LostPage,
   ],
   imports: [
-    IonicPageModule.forChild(ThirdPage),
+    IonicPageModule.forChild(LostPage),
   ],
 })
-export class ThirdPageModule {}
+export class LostPageModule {}

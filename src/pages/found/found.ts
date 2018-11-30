@@ -1,9 +1,8 @@
-import { TabsPage } from './../tabs/tabs';
+import { FIREBASE_CONFIG } from '../../app/app.firebase.config';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DataService } from './../../providers/data.service';
-import { Item } from './../../models/lost-n-found/item.interface';
-
+import { IonicPage, NavController } from 'ionic-angular';
+import {storage} from 'firebase'
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @IonicPage()
 @Component({
@@ -11,23 +10,39 @@ import { Item } from './../../models/lost-n-found/item.interface';
   templateUrl: 'found.html',
 })
 export class FoundPage {
-  item: Item = {
-    itemType: '',
-    desc: ''
-  };
 
-  
-  constructor(private navCtrl: NavController, private navParams: NavParams, private database: DataService) {
-   
+  constructor(private camera: Camera,public navCtrl: NavController) {
+  }
+  async takePhoto(){
+    try{
+      const options: CameraOptions ={
+        quality: 50,
+        targetHeight: 600,
+        targetWidth: 600,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE,
+        correctOrientation:true
+      }
+      
+      const result = await  this.camera.getPicture(options);
+      const image = `data:image/jpeg;base64,${result}`
+      const pictures = storage().ref(`pictures/${(Math.random()*99999999)}`);
+      pictures.putString(image,'data_url')
+    }
+    catch(e){
+      console.error(e);
+    }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddNotePage');
+  async getphoto(){
+    try{
+      const pictures = storage().ref('picture');
+      console.log(pictures);
+
+    }catch(e){
+      console.error(e);
+    }
   }
- 
-  addItem(item: Item) {
-    this.database.createItem(item).then(ref => {
-      this.navCtrl.setRoot('TabsPage');
-    })
-  }
+
 }

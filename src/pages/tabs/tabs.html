@@ -1,15 +1,7 @@
-<!-- <ion-header>
- <div class ="logout-button">
-    <button ion-button color = "primary" (click) = "logout()" position="right">Logout</button>
-
-  </div>
-  
-</ion-header> -->
-
-<ion-tabs set>
+<ion-tabs selectedIndex="1">
+  <ion-tab [root]="aboutPage" tabIcon="book" tabTitle="About"></ion-tab>
   <ion-tab [root]="mainPage"  tabIcon="bug" tabTitle="Lost and Found"></ion-tab>
-  <!-- <ion-tab [root]="tab3Root" tabIcon="sad" tabTitle="Lost"></ion-tab> -->
-  <ion-tab [root]="aboutPage" tabIcon="mail" tabTitle="About"></ion-tab>
+  <ion-tab [root]="message" tabIcon="mail" tabTitle="inbox"></ion-tab>
   <ion-tab [root]="profilePage"   tabIcon="people" tabTitle="Profile"></ion-tab>
 
 </ion-tabs>
